@@ -36,6 +36,14 @@ class _ListViewBuilderScreenState extends State<ListViewBuilderScreen> {
     add5();
     isLoading = false;
     setState(() {});
+
+    // solo si esta cerca del final del scroll hace la animacion proxima de carga
+    if (scrollController.position.pixels + 100 <=
+        scrollController.position.maxScrollExtent) return;
+
+    scrollController.animateTo(scrollController.position.pixels + 200,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.fastOutSlowIn);
   }
 
   void add5() {
