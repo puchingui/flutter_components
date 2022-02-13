@@ -71,8 +71,11 @@ class _ListViewBuilderScreenState extends State<ListViewBuilderScreen> {
                         'https://picsum.photos/500/300?image=${imagesIds[index]}'));
               },
             ),
-            Positioned(
-                bottom: 40, left: size.width * 0.5 - 30, child: _LoadingIcon())
+            if (isLoading)
+              Positioned(
+                  bottom: 40,
+                  left: size.width * 0.5 - 30,
+                  child: _LoadingIcon())
           ],
         ),
       ),
